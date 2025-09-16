@@ -1,4 +1,5 @@
-import os
+from alembic.config import Config
+from alembic import command
 from fastapi import FastAPI
 from sqlalchemy.orm import Session
 from app.database import engine
@@ -6,10 +7,9 @@ from app.database import engine
 from app.web_models import PersonPostRequest, PersonResponse
 from app.crud import add_person, retrieve_persons
 
-app = FastAPI()
+app = FastAPI(root_path="/api")
 
-
-@app.get("/")
+@app.get("/persons")
 def get_persons(page: int = 0, limit: int = 5, is_archived: bool | None = None) -> list[PersonResponse]:
 
     session = Session(engine)
@@ -23,7 +23,7 @@ def get_persons(page: int = 0, limit: int = 5, is_archived: bool | None = None) 
             for person in persons]
 
 
-@app.post("/", status_code=201)
+@app.post("/persons", status_code=201)
 def post_person(person: PersonPostRequest):
     session = Session(engine)
     try:

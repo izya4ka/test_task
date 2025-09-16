@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
   import { ref, onMounted, onUnmounted } from 'vue'
   import { router } from "../../plugins/routes"
   const current_time = ref(new Date())
