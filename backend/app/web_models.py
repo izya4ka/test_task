@@ -7,8 +7,13 @@ class PersonPostRequest(BaseModel):
     last_name: str
     is_archived: bool
 
-class PersonResponse(BaseModel):
+class PersonWebModel(BaseModel):
+    id: int
     first_name: str
     last_name: str
     is_archived: bool
     date_added: datetime.datetime
+    
+class PersonListResponse(BaseModel):
+    items: list[PersonWebModel]
+    total: int

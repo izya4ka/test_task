@@ -1,6 +1,6 @@
-import type { Person } from "./Models";
+import type { GetPersonsResponse } from "./Models";
 
-export async function GetPersons(page: number, limit: number, show_archived: boolean = false): Promise<Person[]> {
+export async function GetPersons(page: number, limit: number, show_archived: boolean = false): Promise<GetPersonsResponse> {
 
     let params = new URLSearchParams({
             page: page.toString(),
@@ -8,14 +8,15 @@ export async function GetPersons(page: number, limit: number, show_archived: boo
     })
 
     if (show_archived) {
-        params.append("is_archived", "true")
+        params.append("show_archived", "true")
     }
 
-    const response = await fetch("/api/", {
-        method: "POST",
-        body: params
+    const response = await fetch(("/api/persons?" + params).toString(), {
+        method: "GET",
     })
 
-    return await response.json() as Person[]
+    let result = await response.json() as GetPersonsResponse
+
+    return result
 
 }

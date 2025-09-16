@@ -1,9 +1,8 @@
 <script setup lang="ts">
-  import { ref, onMounted, onUnmounted } from 'vue'
+  import { ref, onMounted, onUnmounted} from 'vue'
   import { router } from "../../plugins/routes"
   const current_time = ref(new Date())
   let interval = 0;
-
   onMounted(() => {
     current_time.value = new Date()
 

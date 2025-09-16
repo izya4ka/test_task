@@ -9,7 +9,7 @@
       }">
         <p class="text-h1 mb-4">Иди спать!</p>
         <img src="../../../assets/storyteller.gif" class="mb-4"></img>
-        <v-btn to="/">
+        <v-btn class="text-pink" to="/">
           Вернуться
         </v-btn>
     </v-card>

@@ -6,6 +6,7 @@ services:
       context: ./backend
     environment:
       - DATABASE_URL=postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@database:${DATABASE_PORT}/${DATABASE_NAME}
+      - USE_MEMORY=${USE_MEMORY}
     ports:
       - 3000:8000
 
@@ -13,6 +14,15 @@ services:
     build: 
       dockerfile: Dockerfile
       context: ./frontend
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./frontend
 
   nginx:
       image: nginx:stable-alpine
