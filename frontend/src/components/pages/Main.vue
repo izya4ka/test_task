@@ -42,7 +42,7 @@
           {{ current_time.toLocaleTimeString() }}
         </p>
         <v-btn class="text-pink" @click="redirect">
-          Стать частью проекта
+          Список участников
         </v-btn>
       </div>
     </v-card>
