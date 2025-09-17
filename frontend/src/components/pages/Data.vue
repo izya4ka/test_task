@@ -46,15 +46,10 @@
 </script>
 
 <template>
-    <v-main class="d-flex justify-center align-center fill-height pa-4">
     <v-card
       class="d-flex flex-column rounded-lg text-center justify-center align-center pa-8"
       title="Список участников проекта Разгром"
-      :class="$vuetify.display.xs ? 'w-100' : ''"
-      :style="{
-        width: $vuetify.display.xs ? '100%' :
-                  $vuetify.display.smAndDown || $vuetify.display.md ? '75%' : '50%'
-      }">
+      >
         <v-data-table-server
           v-model:items-per-page="limit"
          :items="persons"
@@ -79,10 +74,9 @@
         </v-data-table-server>
         <div class="d-flex flex-row justify-space-between align-center w-100">
             <v-checkbox v-model="showArchived" color="pink" label="Отображать архивные записи" />
-            <v-btn to="/">
+            <v-btn class="text-pink" to="/">
               Вернуться
             </v-btn>
         </div>
     </v-card>
-  </v-main>
 </template>

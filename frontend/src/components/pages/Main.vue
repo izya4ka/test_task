@@ -32,16 +32,10 @@
 </script>
 
 <template>
-  <v-main class="d-flex justify-center align-center fill-height pa-4">
     <v-card
       class="rounded-lg text-center"
       title="Время"
       subtitle="До реализации проекта Разгром"
-      :class="$vuetify.display.xs ? 'w-100' : ''"
-      :style="{
-        width: $vuetify.display.xs ? '100%' :
-                  $vuetify.display.smAndDown || $vuetify.display.md ? '75%' : '50%'
-      }"
     >
       <div class="pb-8 d-flex flex-column justify-center align-center">
         <p :class="[$vuetify.display.xs ? 'text-h2' : 'text-h1', 'mb-4']" style="font-family: 'Iosevka'">
@@ -52,6 +46,5 @@
         </v-btn>
       </div>
     </v-card>
-  </v-main>
 </template>
 
